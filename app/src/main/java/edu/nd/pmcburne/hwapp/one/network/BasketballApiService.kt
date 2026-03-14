@@ -1,0 +1,15 @@
+package edu.nd.pmcburne.hwapp.one.network
+
+import edu.nd.pmcburne.hwapp.one.data.ScoreboardResponse
+import retrofit2.http.GET
+import retrofit2.http.Path
+
+interface BasketballApiService {
+    @GET("scoreboard/basketball-{gender}/d1/{year}/{month}/{day}")
+    suspend fun getScoreboard(
+        @Path("gender") gender: String,
+        @Path("year") year: String,
+        @Path("month") month: String,
+        @Path("day") day: String
+    ): ScoreboardResponse
+}
